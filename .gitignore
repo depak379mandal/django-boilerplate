@@ -58,7 +58,7 @@ celerybeat.pid
 
 
 # Environments
-
+.devenv
 
 
 
