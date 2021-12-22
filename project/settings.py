@@ -30,9 +30,10 @@ SECRET_KEY = 'django-insecure-v7xc5e92okiqpkku&b6gdqiv_7=ekptzl&yk3ljsa6cds2lz&8
 DEBUG = os.getenv('DEBUG', True)
 
 if DEBUG and ENVIRONMENT == 'development':
-    config = dotenv_values(BASE_DIR / '.devenv')
+    config = dotenv_values(BASE_DIR / '.dev.env')
 else:
     config = dotenv_values(BASE_DIR /  '.env')
+    
 
 
 ALLOWED_HOSTS = config.get('ALLOWED_HOSTS', '*').split(',')
@@ -154,7 +155,6 @@ EMAIL_USE_SSL = bool(int(config.get('EMAIL_USE_TLS', '0')))
 # Production setup
 if ENVIRONMENT == 'production' and not DEBUG:
     DEBUG = False
-    SECRET_KEY = os.getenv('SECRET_KEY')
     SESSION_COOKIE_SECURE = True
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True

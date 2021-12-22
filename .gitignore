@@ -58,7 +58,11 @@ celerybeat.pid
 
 
 # Environments
-.devenv
+/.dev.env
 
 
+# Database 
+/data
+/env
 
+db.sqlite3
